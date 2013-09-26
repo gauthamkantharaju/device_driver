@@ -1,6 +1,6 @@
 /** 
 	Module version	: 1.0
-  Author		  	  : Gautham Kantharaju
+  	Author		  	  : Gautham Kantharaju
 	Description		  : Simple device driver with debugfs information embedded into it.
  */
 
