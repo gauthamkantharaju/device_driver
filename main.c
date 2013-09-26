@@ -4,7 +4,7 @@
 	Description		  : Simple device driver with debugfs information embedded into it.
  */
 
-#include "hello.h"
+#include "main.h"
 
 static int majorno = 0;
 /* Non-Static variable */
