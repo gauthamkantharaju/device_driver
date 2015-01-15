@@ -108,7 +108,7 @@ static ssize_t minor_read(struct file *filp, char __user *buf, size_t count, lof
 
 	test->rindex = count;	
 	
-	*((CNTXT *) filp->private_data) = *((CNTXT *) test);
+	*((CNTXT *) test) = *((CNTXT *) filp->private_data);
 
 	test_db = test->rindex;
 
