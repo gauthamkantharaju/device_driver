@@ -13,25 +13,22 @@
 #include <linux/wait.h>
 #include <linux/ioctl.h>
 #include <linux/moduleparam.h>
-#include <asm/atomic.h>
+#include <linux/atomic.h>
 
 #define CONFIG_UACCESS	1
 
 #if (CONFIG_UACCESS == 1)
-#  include <asm/uaccess.h>
+#  include <linux/uaccess.h>
 #else
 #  error "Cannot include uaccess"
 #endif
-
-#define dmsg(string, args...) \
-		printk(KERN_DEBUG "%s:%s:%d:" string, MODULE_NAME, __FUNCTION__, __LINE__, ##args)
 
 #define SUCCESS				0
 #define ERROR				-1
 #define MAX_STRLEN			50
 #define MAX_LEN				5
 
-#define MODULE_NAME 		"hello"
+#define MODULE_NAME			"hello"
 #define MOD_VERSION			"1.0"
 
 #define IOCTL_MAX_CMDS		2
@@ -42,18 +39,17 @@
 #if 1
 static inline void iline(char *str)
 {
-	dmsg("String:%s \n", str);
+	pr_info("String:%s\n", str);
 }
 #endif
 
-typedef struct _context
-{
+typedef struct _context {
 	char *buf;
 	int *arry;
 	unsigned int len;
 	unsigned int rindex;
 	unsigned int windex;
 	spinlock_t lock;
-}CNTXT;
+} CNTXT;
 
 #endif /* _MAIN_H_ */
