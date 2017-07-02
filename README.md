@@ -14,7 +14,7 @@ Note: Need to root in order to execute below commands
 
 - make clean;clear;make
 - insmod test.ko
-- mknod /dev/hello c <major number assigned> 0
+- mknod /dev/hello c "major number assigned" 0
 
 
 Compile test application
