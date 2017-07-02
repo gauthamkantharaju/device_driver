@@ -2,7 +2,6 @@
 	Module version	: 1.0
 	Author			: Gautham Kantharaju
 	Description		: Simple device driver with debugfs
-				information embedded into it.
  */
 
 #include "main.h"
@@ -61,6 +60,8 @@ static int minor_open(struct inode *inode, struct file *filp)
 		if (!filp->private_data) {
 			pr_err("Dynamic memory allocation failed\n");
 			res = -1;
+		} else {
+			memcpy(filp->private_data, test, sizeof(CNTXT));
 		}
 	}
 	return res;
